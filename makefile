@@ -3,6 +3,12 @@ CFLAGS= -g
 LDFLAGS= -lm
 CC= gcc
 
+run: all
+	./mdl robot.mdl
+
+image: all
+	./mdl image.mdl
+
 all: parser
 
 parser: lex.yy.c y.tab.c y.tab.h $(OBJECTS)
@@ -43,6 +49,6 @@ stack.o: stack.c stack.h matrix.h
 
 clean:
 	rm y.tab.c y.tab.h
-	rm lex.yy.c
+	rm lex.yy.c mdl
 	rm -rf mdl.dSYM
-	rm *.o *~
+	rm *.o *.png

@@ -1,6 +1,6 @@
 General Notes:
 
-Items seperated by | means you must choose one of them in an input line.
+Items separated by | means you must choose one of them in an input line.
 Items enclosed in [] are optional.
 
 For example, rotate is specified as:

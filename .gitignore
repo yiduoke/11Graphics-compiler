@@ -1,5 +1,4 @@
 ignore
-#graphics-06
 *.ppm
 *.png
 *.o

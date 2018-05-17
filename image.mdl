@@ -1,0 +1,36 @@
+push
+move 250 250 0
+
+// Wheel
+push
+rotate x 90
+torus 0 0 0 10 100
+pop
+
+// Inner triangles
+push
+box 0 0 0 100 3 3
+rotate z 30
+box 0 0 0 100 3 3
+
+rotate z 90
+box 0 0 0 100 3 3
+rotate z 30
+box 0 0 0 100 3 3
+
+rotate z 90
+box 0 0 0 100 3 3
+rotate z 30
+box 0 0 0 100 3 3
+pop
+
+// Inclined plane
+push
+move -350 -250 -50
+rotate z 20.9
+box 0 0 0 900 400 100
+pop
+
+pop
+display
+save image.png
