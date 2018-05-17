@@ -45,4 +45,4 @@ clean:
 	rm y.tab.c y.tab.h
 	rm lex.yy.c
 	rm -rf mdl.dSYM
-	rm *.o *~ *.png
+	rm *.o *~

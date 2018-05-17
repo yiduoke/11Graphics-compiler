@@ -117,14 +117,14 @@ void my_main() {
       tmp->lastcol = 0;
     }
 
-    else if (op[i].opcode == SPHERE){
+    else if (op[i].opcode == TORUS){
       double x, y, z, r0, r1;
       x = op[i].op.torus.d[0];
       y = op[i].op.torus.d[1];
       z = op[i].op.torus.d[2];
       r0 = op[i].op.torus.r0;
       r0 = op[i].op.torus.r1;
-      add_torus(tmp, x, y, z, r, step_3d);
+      add_torus(tmp, x, y, z, r0, r1, step_3d);
       matrix_mult(peek(systems), tmp);
       draw_polygons(tmp, t, zb, view, light, ambient, areflect, dreflect, sreflect);
       tmp->lastcol = 0;
@@ -144,12 +144,12 @@ void my_main() {
     }
     else if (op[i].opcode == LINE){
       double x0, y0, z0, x1, y1, z1;
-      x0 = op[i].op.box.p0[0];
-      y0 = op[i].op.box.p0[1];
-      z0 = op[i].op.box.p0[2];
-      x1 = op[i].op.box.p1[0];
-      y1 = op[i].op.box.p1[1];
-      z1 = op[i].op.box.p1[2];
+      x0 = op[i].op.box.d0[0];
+      y0 = op[i].op.box.d0[1];
+      z0 = op[i].op.box.d0[2];
+      x1 = op[i].op.box.d1[0];
+      y1 = op[i].op.box.d1[1];
+      z1 = op[i].op.box.d1[2];
       add_box(tmp, x0, y0, z0, x1, y1, z1);
       matrix_mult(peek(systems), tmp);
       draw_polygons(tmp, t, zb, view, light, ambient, areflect, dreflect, sreflect);
@@ -202,7 +202,7 @@ void my_main() {
       display(t);
     }
     else if (op[i].opcode == SAVE){
-      save_extension(op[i].op.save.p);
+      save_extension(t, op[i].op.save.p);
     }
   }
 }
