@@ -202,7 +202,7 @@ void my_main() {
       display(t);
     }
     else if (op[i].opcode == SAVE){
-      save_extension(t, op[i].op.save.p);
+      save_extension(t, op[i].op.save.p->name);
     }
   }
 }
