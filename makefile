@@ -3,13 +3,8 @@ CFLAGS= -g
 LDFLAGS= -lm
 CC= gcc
 
-run: all
-	./mdl robot.mdl
-
-image: all
-	./mdl image.mdl
-
 all: parser
+	./mdl robot.mdl
 
 parser: lex.yy.c y.tab.c y.tab.h $(OBJECTS)
 	gcc -o mdl $(CFLAGS) lex.yy.c y.tab.c $(OBJECTS) $(LDFLAGS)
